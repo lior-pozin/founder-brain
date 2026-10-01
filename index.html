@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Founder Brain</title>
+<meta name="description" content="The file Lior Pozin's Claude reads before it writes a word for him. A fill-in template any founder can copy. Free, no email required.">
+<meta property="og:title" content="The Founder Brain">
+<meta property="og:description" content="The file my Claude reads before it writes a word for me. Free, no email required.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--panel:#121212;--line:#232323;--fg:#fff;--muted:#8a8f98;--accent:#00BEFF;}
+*{box-sizing:border-box}
+html{scroll-snap-type:y mandatory;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:Inter,-apple-system,'Segoe UI',sans-serif;margin:0;line-height:1.55;-webkit-font-smoothing:antialiased}
+.slide{min-height:100vh;min-height:100svh;scroll-snap-align:start;display:flex;align-items:center;padding:72px 16px 96px;border-bottom:1px solid var(--line)}
+.inner{max-width:920px;width:100%;margin:0 auto}
+.eyebrow{color:var(--accent);letter-spacing:.18em;font-size:13px;font-weight:700;text-transform:uppercase;margin:0 0 20px}
+h1{font-size:clamp(44px,9vw,96px);line-height:1;margin:0 0 24px;font-weight:800;letter-spacing:-.03em}
+h2{font-size:clamp(30px,5vw,52px);line-height:1.08;margin:0 0 28px;font-weight:800;letter-spacing:-.02em}
+.sub{color:var(--muted);font-size:clamp(18px,2.4vw,22px);max-width:660px;margin:0 0 28px}
+.by{font-size:15px;color:var(--muted)} .by b{color:var(--fg)}
+.big{font-size:clamp(24px,3.6vw,38px);font-weight:700;line-height:1.25;margin:0 0 18px}
+.big.dim{color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 28px}
+.stat{background:var(--panel);border-radius:12px;padding:26px 20px}
+.stat b{display:block;font-size:clamp(34px,6vw,64px);font-weight:800;color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:15px}
+ol.list{list-style:none;padding:0;margin:0;display:grid;gap:10px;counter-reset:n}
+ol.list li{background:var(--panel);border-radius:10px;padding:16px 20px;counter-increment:n;display:flex;gap:14px;font-size:17px}
+ol.list li::before{content:counter(n);color:var(--accent);font-weight:800;font-variant-numeric:tabular-nums;min-width:18px}
+ol.list li span{color:var(--muted)}
+.loop{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 28px}
+.loop div{background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:12px 20px;font-weight:700}
+.loop i{color:var(--accent);font-style:normal;align-self:center;font-weight:800}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cols>*,.stats>*,ol.list li>div{min-width:0;overflow-wrap:anywhere}
+.card{background:var(--panel);border-radius:12px;padding:24px}
+.card h3{margin:0 0 12px;font-size:20px}
+.card p{margin:0 0 10px;color:var(--muted)}
+.ex{border-left:3px solid var(--accent);padding:4px 0 4px 14px;margin-top:14px;color:var(--fg)!important;font-weight:600}
+.ex small{display:block;color:var(--accent);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:4px}
+.tells{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px}
+.tells span{background:#1d0f12;color:#ff8a9a;border:1px solid #3a1a20;border-radius:8px;padding:8px 12px;font-size:15px;text-decoration:line-through;text-decoration-color:#ff8a9a99}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;white-space:pre-wrap;font:14px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;color:#d6dae0;margin:0 0 16px;max-height:46vh;overflow:auto}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+button,.btn{background:var(--accent);color:#000;border:0;border-radius:10px;padding:14px 22px;font:700 16px Inter,sans-serif;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.ghost{background:transparent;color:var(--fg);border:1px solid #333}
+.steps{color:var(--muted);font-size:16px;margin:0 0 24px;padding-left:20px}
+.steps li{margin-bottom:6px} .steps b{color:var(--fg)}
+.close h2{font-size:clamp(34px,6vw,64px)}
+a{color:var(--accent)}
+nav{position:fixed;right:16px;bottom:16px;display:flex;gap:8px;align-items:center;background:#111d;backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:999px;padding:6px 6px 6px 16px;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;z-index:5}
+nav button{width:36px;height:36px;padding:0;border-radius:50%;background:#1e1e1e;color:var(--fg);font-size:16px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(80px);background:var(--accent);color:#000;font-weight:700;padding:12px 20px;border-radius:10px;transition:transform .25s;z-index:6}
+.toast.on{transform:translateX(-50%) translateY(0)}
+@media (max-width:700px){
+  .stats{grid-template-columns:1fr}
+  .cols{grid-template-columns:1fr}
+  html{scroll-snap-type:y proximity}
+  nav{right:50%;transform:translateX(50%)}
+}
+</style>
+</head>
+<body>
+
+<section class="slide"><div class="inner">
+  <p class="eyebrow">Free · No email needed</p>
+  <h1>The Founder Brain</h1>
+  <p class="sub">The file my Claude reads before it writes a single word for me. Fill in yours, and Claude starts sounding like you.</p>
+  <p class="by"><b>Lior Pozin</b> · Founder, AutoDS</p>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <p class="eyebrow">01 · The numbers</p>
+  <div class="stats">
+    <div class="stat"><b>300K</b><span>followers across platforms</span></div>
+    <div class="stat"><b>200</b><span>employees to run</span></div>
+    <div class="stat"><b>1h</b><span>a week of my time</span></div>
+  </div>
+  <p class="big">Everyone asks how.</p>
+  <p class="big dim">This file is most of the answer.</p>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <p class="eyebrow">02 · Why bother</p>
+  <p class="big">AI made content free. So now everything sounds the same.</p>
+  <p class="big">People still connect to people.</p>
+  <p class="big dim">That makes a personal brand the cheapest channel a founder has left.</p>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <p class="eyebrow">03 · The loop</p>
+  <h2>Six steps. I only do two of them.</h2>
+  <div class="loop">
+    <div>Record</div><i>→</i><div>Store</div><i>→</i><div>Brief</div><i>→</i><div>Draft</div><i>→</i><div>Approve</div><i>→</i><div>Learn</div>
+  </div>
+  <ol class="list">
+    <li><div><b>Record.</b> <span>Everything I say goes on tape.</span></div></li>
+    <li><div><b>Approve.</b> <span>I read the draft and say yes or no.</span></div></li>
+  </ol>
+  <p class="sub" style="margin-top:20px">The rest runs on the brain: a year of recordings plus one file of rules.</p>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <p class="eyebrow">04 · What gets recorded</p>
+  <h2>If I said it, it's in the brain.</h2>
+  <ol class="list">
+    <li><div>Every meeting <span>· a recorder runs all day</span></div></li>
+    <li><div>Every thought that hits <span>· a voice note to one WhatsApp group</span></div></li>
+    <li><div>Every coaching session</div></li>
+    <li><div>Podcasts and interviews</div></li>
+    <li><div>Big decisions <span>· and why I made them</span></div></li>
+    <li><div>Posts that worked and posts that flopped</div></li>
+    <li><div>Personal sessions <span>· only what you're comfortable storing</span></div></li>
+  </ol>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <p class="eyebrow">05 · The file</p>
+  <h2>Six parts. One page. Claude reads it every time.</h2>
+  <ol class="list">
+    <li><div><b>Fixed facts</b> <span>· the numbers that can never be wrong</span></div></li>
+    <li><div><b>Voice</b> <span>· how you really talk, and what you never say</span></div></li>
+    <li><div><b>Story bank</b> <span>· every story, with the real number</span></div></li>
+    <li><div><b>Red lines</b> <span>· what never goes into a post</span></div></li>
+    <li><div><b>Beliefs</b> <span>· what you'd argue for on a stage</span></div></li>
+    <li><div><b>Results</b> <span>· what worked, what flopped, why</span></div></li>
+  </ol>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <p class="eyebrow">06 · The part that kills "generic"</p>
+  <h2>Claude is banned from writing like AI.</h2>
+  <p class="sub">Readers spot these in one second. My file forbids every one of them.</p>
+  <div class="tells">
+    <span>em dashes</span><span>"It's not X, it's Y"</span><span>"Honestly,"</span><span>delve</span><span>crucial</span><span>pivotal</span><span>tapestry</span><span>seamless</span><span>"Here's the thing"</span><span>"Most people..."</span><span>(parentheses)</span>
+  </div>
+  <div class="card"><p class="ex"><small>The test in my file</small>Would I say this out loud on a podcast? If not, cut it.</p></div>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <p class="eyebrow">07 · Real examples from my file</p>
+  <div class="cols">
+    <div class="card"><h3>Fixed facts</h3><p>Numbers that never change between posts.</p><p class="ex"><small>From my file</small>"Kicked out of school at 14."</p></div>
+    <div class="card"><h3>Story bank</h3><p>The moment, the number, the decision, the lesson.</p><p class="ex"><small>From my file</small>An offer a day before closing. Walked away because the plan was to cut my team.</p></div>
+    <div class="card"><h3>Red lines</h3><p>What never goes into a post.</p><p class="ex"><small>From my file</small>Never criticize a partner in public.</p></div>
+    <div class="card"><h3>Results</h3><p>What the audience actually rewarded.</p><p class="ex"><small>From my file</small>Giving away my real exit deck beat every post before it.</p></div>
+  </div>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <p class="eyebrow">Step 1 · Get the file</p>
+  <h2>Take it to your Claude.</h2>
+  <ol class="steps">
+    <li>Open Claude and create a new <b>Project</b>.</li>
+    <li>Paste the file into the project's <b>instructions</b>, or upload it as a file.</li>
+    <li>Run the interview prompt on the next slide. It fills the blanks for you.</li>
+  </ol>
+  <div class="btns">
+    <button data-copy="file">Copy the file</button>
+    <a class="btn ghost" href="founder-brain.md" download>Download .md</a>
+  </div>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <p class="eyebrow">Step 2 · Fill it in, in 20 minutes</p>
+  <h2>Let Claude interview you.</h2>
+<pre id="p-interview">I want to build my Founder Brain: one file that teaches you how I think, talk and decide, so everything you write for me sounds like me.
+
+The template is in this project. Interview me to fill it in.
+
+Rules:
+- One question at a time. Wait for my answer.
+- Go section by section, 3 to 5 questions each.
+- If my answer is vague, ask for the real example and the number.
+- Use my exact words. Never polish them.
+- If I paste meeting transcripts or voice notes, mine them first and only ask about what's missing.
+
+When we're done, give me the full file filled in, with [X] wherever I had no answer.</pre>
+  <div class="btns"><button data-copy="p-interview">Copy prompt</button></div>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <p class="eyebrow">Step 3 · Every week after</p>
+  <h2>Turn one voice note into one post.</h2>
+<pre id="p-weekly">Read my Founder Brain file first.
+
+Here is a voice note or meeting transcript:
+[paste it here]
+
+Find the one idea in it worth a post.
+Write one LinkedIn post: one idea, my voice, only facts from my file or the transcript.
+Leave [X] wherever a number is missing.
+Then tell me which rule in my file was the hardest to follow.</pre>
+  <div class="btns"><button data-copy="p-weekly">Copy prompt</button></div>
+</div></section>
+
+<section class="slide close"><div class="inner">
+  <p class="eyebrow">The one rule</p>
+  <h2>Record yourself.<br>Never stop.</h2>
+  <p class="sub">One day it will know you better than you remember yourself.</p>
+  <p class="by"><b>Lior Pozin</b> · <a href="https://liorpozin.com">liorpozin.com</a></p>
+</div></section>
+
+<nav><span id="count">1 / 12</span><button id="prev" aria-label="Previous">↑</button><button id="next" aria-label="Next">↓</button></nav>
+<div class="toast" id="toast">Copied</div>
+
+<script type="text/plain" id="file">
+# My Founder Brain
+
+Claude, read this file before you write anything for me.
+Every rule here applies to every post, reply, script and caption.
+If you need a fact that is not in this file, write [X] and ask me. Never invent one.
+
+---
+
+## 1. Fixed facts
+
+The facts that can never be wrong.
+
+- My name and role: [ ]
+- My company, its size, what it does: [ ]
+- Numbers I can say in public: [ ]
+- Numbers I must never round, inflate or change: [ ]
+- Dates that matter: [ ]
+
+Example from Lior's file:
+- "Kicked out of school at 14."
+- "200 employees" in public content, always the same number.
+
+---
+
+## 2. My voice
+
+How I actually talk. Fill this from real recordings, not from how you wish you sounded.
+
+- 3 phrases I really say: [ ]
+- How I open a story: [ ]
+- How I land a story: [ ]
+- Words I never use: [ ]
+
+Writing rules:
+- Short sentences. Simple words. One idea per post.
+- Hooks under 10 words, with a number, a name or a year in the first line.
+- Speak to the reader, not about myself. Max 3 "I" in a short post.
+- Test every draft: would I say this out loud on a podcast? If not, cut it.
+
+Never write these. They are how readers spot AI:
+- Em dashes or double dashes
+- "It's not X, it's Y" in any wording
+- Opening with "Honestly", "Frankly" or "To be honest"
+- Parentheses
+- delve, crucial, pivotal, tapestry, robust, seamless, realm
+- "Here's the thing", "Hope this helps", "Most people..."
+
+---
+
+## 3. Story bank
+
+Every story I tell, with the real number attached. Add one every time I tell a new story.
+
+Template:
+- The moment: [ ]
+- The number: [ ]
+- What I decided: [ ]
+- The lesson, in one line: [ ]
+
+Example from Lior's file:
+- The moment: a buyer's offer, one day before closing.
+- What he decided: walked away, because the plan was to cut his team.
+- The lesson: some numbers aren't worth it.
+
+---
+
+## 4. Red lines
+
+What never goes into a post, no matter how good the draft is.
+
+- Topics I never post about: [ ]
+- Partners or companies I never criticize: [ ]
+- Claims I never make: [ ]
+- Personal things that stay private: [ ]
+
+Example from Lior's file:
+- "Investors never said no to me. The company was profitable from day one. Never write a 'rejected by VCs' story."
+- "Never criticize a partner in public."
+
+---
+
+## 5. Beliefs
+
+What I would argue for on a stage. Every post should hit at least one.
+
+1. [ ]
+2. [ ]
+3. [ ]
+
+Example from Lior's file:
+- "People connect to people."
+- "A personal brand is the cheapest channel a founder has left."
+
+---
+
+## 6. Results
+
+What worked, what flopped, and why. Update it every month.
+
+| Post | Result | Why I think it worked or flopped |
+|---|---|---|
+| [ ] | [ ] | [ ] |
+
+Example from Lior's file:
+- Giving away the real deck he used to sell his company brought more followers than any post before it.
+- Generic "how to use this tool" posts brought zero.
+
+---
+
+## How we work
+
+1. I record everything: meetings, voice notes, sessions.
+2. Transcripts go into this project.
+3. I give you a one-line brief.
+4. You draft from this file and the transcripts, in my words, with my numbers.
+5. I approve. You never publish.
+6. What worked and what flopped goes back into section 6.
+</script>
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+const count=document.getElementById('count');
+let cur=0;
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){cur=slides.indexOf(e.target);count.textContent=(cur+1)+' / '+slides.length}}),{threshold:.55});
+slides.forEach(s=>io.observe(s));
+const m=location.hash.match(/^#(\d+)$/);if(m){document.documentElement.style.scrollBehavior='auto';const s=slides[+m[1]-1];if(s)s.scrollIntoView()}
+const go=d=>{const i=Math.max(0,Math.min(slides.length-1,cur+d));slides[i].scrollIntoView({behavior:'smooth'})};
+document.getElementById('prev').onclick=()=>go(-1);
+document.getElementById('next').onclick=()=>go(1);
+addEventListener('keydown',e=>{if(e.target.closest('pre'))return;if(['ArrowDown','ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(1)}if(['ArrowUp','ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(-1)}});
+const toast=document.getElementById('toast');
+let fileText=document.getElementById('file').textContent.trim();
+fetch('founder-brain.md').then(r=>r.ok?r.text():'').then(t=>{if(t)fileText=t}).catch(()=>{});
+document.querySelectorAll('[data-copy]').forEach(b=>b.onclick=async()=>{
+  const id=b.dataset.copy;const text=id==='file'?fileText:document.getElementById(id).textContent;
+  try{await navigator.clipboard.writeText(text)}catch(e){const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove()}
+  toast.classList.add('on');setTimeout(()=>toast.classList.remove('on'),1400);
+});
+</script>
+</body>
+</html>
