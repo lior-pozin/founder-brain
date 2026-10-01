@@ -11,12 +11,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#000;--panel:#121212;--line:#232323;--fg:#fff;--muted:#8a8f98;--accent:#00BEFF;}
+:root{--bg:#000;--panel:#181818;--slide:#0b0b0b;--line:#232323;--fg:#fff;--muted:#8a8f98;--accent:#00BEFF;}
 *{box-sizing:border-box}
 html{scroll-snap-type:y mandatory;scroll-behavior:smooth}
 body{background:var(--bg);color:var(--fg);font-family:Inter,-apple-system,'Segoe UI',sans-serif;margin:0;line-height:1.55;-webkit-font-smoothing:antialiased}
-.slide{min-height:100vh;min-height:100svh;scroll-snap-align:start;display:flex;align-items:center;padding:72px 16px 96px;border-bottom:1px solid var(--line)}
-.inner{max-width:920px;width:100%;margin:0 auto}
+.slide{min-height:100vh;min-height:100svh;scroll-snap-align:start;display:flex;padding:16px;counter-increment:slide}
+.inner{position:relative;max-width:1040px;width:100%;margin:0 auto;min-height:calc(100svh - 32px);display:flex;flex-direction:column;justify-content:center;background:var(--slide);border:1px solid #2a2a2a;border-radius:22px;padding:64px clamp(22px,6vw,72px) 88px;box-shadow:0 20px 60px #0008}
+body{counter-reset:slide}
 .eyebrow{color:var(--accent);letter-spacing:.18em;font-size:13px;font-weight:700;text-transform:uppercase;margin:0 0 20px}
 h1{font-size:clamp(44px,9vw,96px);line-height:1;margin:0 0 24px;font-weight:800;letter-spacing:-.03em}
 h2{font-size:clamp(30px,5vw,52px);line-height:1.08;margin:0 0 28px;font-weight:800;letter-spacing:-.02em}
@@ -57,6 +58,8 @@ nav button{width:36px;height:36px;padding:0;border-radius:50%;background:#1e1e1e
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(80px);background:var(--accent);color:#000;font-weight:700;padding:12px 20px;border-radius:10px;transition:transform .25s;z-index:6}
 .toast.on{transform:translateX(-50%) translateY(0)}
 @media (max-width:700px){
+  .slide{padding:10px}
+  .inner{min-height:calc(100svh - 20px);padding:52px 20px 84px;border-radius:18px}
   .stats{grid-template-columns:1fr}
   .cols{grid-template-columns:1fr}
   html{scroll-snap-type:y proximity}
