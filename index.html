@@ -69,7 +69,7 @@ nav button{width:36px;height:36px;padding:0;border-radius:50%;background:#1e1e1e
 <section class="slide"><div class="inner">
   <p class="eyebrow">Free · No email needed</p>
   <h1>The Founder Brain</h1>
-  <p class="sub">The file my Claude reads before it writes a single word for me. Fill in yours, and Claude starts sounding like you.</p>
+  <p class="sub">The file my Claude reads before it writes a single word for me. Build yours in one conversation, by voice, and Claude starts sounding like you.</p>
   <p class="by"><b>Lior Pozin</b> · Founder, AutoDS</p>
 </div></section>
 
@@ -152,35 +152,66 @@ nav button{width:36px;height:36px;padding:0;border-radius:50%;background:#1e1e1e
 </div></section>
 
 <section class="slide"><div class="inner">
-  <p class="eyebrow">Step 1 · Get the file</p>
-  <h2>Take it to your Claude.</h2>
+  <p class="eyebrow">Step 1 · The interview</p>
+  <h2>Don't fill in anything.<br>Talk.</h2>
+  <p class="sub">Claude asks you easy questions about your life and your work. You answer out loud, like on a podcast. It builds the file from your answers.</p>
   <ol class="steps">
-    <li>Open Claude and create a new <b>Project</b>.</li>
-    <li>Paste the file into the project's <b>instructions</b>, or upload it as a file.</li>
-    <li>Run the interview prompt on the next slide. It fills the blanks for you.</li>
+    <li>Open the <b>Claude app</b> and start a new chat.</li>
+    <li>Paste the prompt from the next slide.</li>
+    <li>Answer by voice: tap the <b>mic</b> and talk. Messy is fine, that's how it learns your voice.</li>
+    <li>About 30 minutes. Say <b>"pause"</b> anytime and continue later.</li>
   </ol>
-  <div class="btns">
-    <button data-copy="file">Copy the file</button>
-    <a class="btn ghost" href="founder-brain.md" download>Download .md</a>
-  </div>
 </div></section>
 
 <section class="slide"><div class="inner">
-  <p class="eyebrow">Step 2 · Fill it in, in 20 minutes</p>
-  <h2>Let Claude interview you.</h2>
-<pre id="p-interview">I want to build my Founder Brain: one file that teaches you how I think, talk and decide, so everything you write for me sounds like me.
+  <p class="eyebrow">The interview prompt</p>
+  <h2>Copy. Paste. Start talking.</h2>
+<pre id="p-interview">Interview me to build my Founder Brain: one file that teaches you who I am, how I talk and what I believe, so everything you write for me sounds like me and not like AI.
 
-The template is in this project. Interview me to fill it in.
+How to interview me:
+- One short, easy question at a time. Wait for my answer.
+- Ask about real moments, never abstract things. Ask "tell me about the day you..." and never "what are your values?"
+- When I mention a story, ask one follow-up for the number, the date or the person.
+- I'm answering by voice, so my answers will be messy. Ignore the filler, but keep my exact phrases. They are my voice.
+- Never ask me to describe my own voice or my beliefs. Work them out from how I answer.
+- If I say "pause", summarize what we have so far. If I say "continue", pick up where we stopped.
 
-Rules:
-- One question at a time. Wait for my answer.
-- Go section by section, 3 to 5 questions each.
-- If my answer is vague, ask for the real example and the number.
-- Use my exact words. Never polish them.
-- If I paste meeting transcripts or voice notes, mine them first and only ask about what's missing.
+Cover these rounds, about 5 questions each:
+1. Me: what I do, my company, how I got here, the numbers I'm proud of.
+2. Stories: the moment I almost quit, my biggest mistake, my first customer, a decision people told me was wrong, something that happened this week.
+3. Opinions: what my industry gets wrong, advice I hate, what I would argue for on a stage.
+4. Red lines: topics I never post about, people or companies I never criticize, what stays private.
+5. Proof: what I've posted that worked and what flopped.
 
-When we're done, give me the full file filled in, with [X] wherever I had no answer.</pre>
+When we're done, give me my Founder Brain file with these sections:
+1. Fixed facts: numbers and dates that can never be wrong
+2. My voice: phrases I really use, how I open and land a story, words I never use
+3. Story bank: each story as moment, number, decision, lesson in one line
+4. Red lines
+5. Beliefs: the 3 things I'd argue for on a stage
+6. Results: what worked and what flopped
+7. Writing rules: short sentences, simple words, one idea per post, hooks under 10 words with a number or a name. Never use em dashes, "It's not X, it's Y", "Honestly", parentheses, delve, crucial, pivotal, tapestry, seamless, "Here's the thing". Test every draft: would I say this out loud on a podcast?
+
+Use my exact words everywhere. Write [X] wherever I gave no answer.
+Then give me 5 post ideas that only I could write, each from a story I told you.
+
+Start with the first question.</pre>
   <div class="btns"><button data-copy="p-interview">Copy prompt</button></div>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <p class="eyebrow">Step 2 · Save your brain</p>
+  <h2>Give your Claude a memory.</h2>
+  <ol class="steps">
+    <li>Claude hands you your Founder Brain file at the end of the interview.</li>
+    <li>Create a new <b>Project</b> in Claude.</li>
+    <li>Paste the file into the project's <b>instructions</b>.</li>
+    <li>From now on, every chat in that project starts by knowing you.</li>
+  </ol>
+  <p class="sub" style="font-size:16px">Rather fill it in yourself? Take the blank template.</p>
+  <div class="btns">
+    <a class="btn ghost" href="founder-brain.md" download>Download blank template</a>
+  </div>
 </div></section>
 
 <section class="slide"><div class="inner">
@@ -205,7 +236,7 @@ Then tell me which rule in my file was the hardest to follow.</pre>
   <p class="by"><b>Lior Pozin</b> · <a href="https://liorpozin.com">liorpozin.com</a></p>
 </div></section>
 
-<nav><span id="count">1 / 12</span><button id="prev" aria-label="Previous">↑</button><button id="next" aria-label="Next">↓</button></nav>
+<nav><span id="count">1 / 13</span><button id="prev" aria-label="Previous">↑</button><button id="next" aria-label="Next">↓</button></nav>
 <div class="toast" id="toast">Copied</div>
 
 <script type="text/plain" id="file">
